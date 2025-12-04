@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f8f9ff;
+    min-height: 100vh;
+    padding: 15px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: #2c3e50;
+    font-size: 2.2em;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #7f8c8d;
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+.month-selector {
+    margin-bottom: 25px;
+    text-align: center;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+select {
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    min-width: 200px;
+    transition: all 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 18px;
+    padding-right: 40px;
+}
+
+select:hover {
+    border-color: #667eea;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+#citySelect {
+    background-color: #667eea;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    color: white;
+    border: 2px solid #667eea;
+    font-weight: 600;
+}
+
+#citySelect:hover {
+    background-color: #5568d3;
+    border-color: #5568d3;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+#citySelect option {
+    background: white;
+    color: #2c3e50;
+    padding: 10px;
+}
+
+#monthSelect option {
+    padding: 10px;
+}
+
+.holidays-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.holiday-card {
+    background: linear-gradient(145deg, #f8f9ff, #e6ebff);
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid #667eea;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.holiday-card[data-type="Nacional"] {
+    border-left-color: #e74c3c;
+}
+
+.holiday-card[data-type="Estadual"] {
+    border-left-color: #f39c12;
+}
+
+.holiday-card[data-type="Municipal"] {
+    border-left-color: #27ae60;
+}
+
+.holiday-card[data-type="Facultativo"] {
+    border-left-color: #9b59b6;
+}
+
+.holiday-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+}
+
+.holiday-date {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #667eea;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.holiday-name {
+    font-size: 1em;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.holiday-type {
+    font-size: 0.85em;
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+.calendar-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border-radius: 2px;
+    position: relative;
+}
+
+.calendar-icon::before {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 1px;
+    background: white;
+}
+
+.calendar-icon::after {
+    content: '';
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 1px;
+    background: white;
+}
+
+.no-holidays {
+    text-align: center;
+    padding: 40px 20px;
+    color: #7f8c8d;
+    font-size: 1.1em;
+    background: linear-gradient(145deg, #f8f9ff, #e6ebff);
+    border-radius: 12px;
+    border: 2px dashed #ddd;
+}
+
+.legend {
+    background: linear-gradient(145deg, #e8f5e8, #c8e6c8);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    border-left: 4px solid #27ae60;
+}
+
+.legend h3 {
+    color: #27ae60;
+    margin-bottom: 8px;
+    font-size: 1em;
+}
+
+.legend p {
+    color: #2c3e50;
+    line-height: 1.4;
+    font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    h1 {
+        font-size: 1.8em;
+    }
+    .holidays-grid {
+        grid-template-columns: 1fr;
+    }
+}

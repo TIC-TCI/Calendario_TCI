@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datas Comemorativas</title>
+    <link rel="stylesheet" href="Css/Styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🗓️ Datas Comemorativas</h1>
+            <p class="subtitle">TCI Modulares</p>
+        </div>
+
+        <div class="month-selector">
+            <div>
+                <select id="citySelect" onchange="changeCity()">
+                    <option value="macapa">📍 Macapá - AP</option>
+                    <option value="goiania">📍 Goiânia - GO</option>
+                </select>
+            </div>
+
+            <div>
+                <select id="monthSelect" onchange="showHolidays()">
+                    <option value="">📅 Selecione o mês</option>
+                    <option value="1">Janeiro</option>
+                    <option value="2">Fevereiro</option>
+                    <option value="3">Março</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Maio</option>
+                    <option value="6">Junho</option>
+                    <option value="7">Julho</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Setembro</option>
+                    <option value="10">Outubro</option>
+                    <option value="11">Novembro</option>
+                    <option value="12">Dezembro</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="holidaysContainer" class="holidays-grid"></div>
+
+        <div class="legend">
+            <h3>🎯 Legenda de Cores:</h3>
+            <p>
+                🔴 <strong style="color: #e74c3c;">Nacional:</strong> Feriados federais para todo o Brasil<br> 🟡 <strong style="color: #f39c12;">Estadual:</strong> Feriados específicos do Amapá<br> 🟢 <strong style="color: #27ae60;">Municipal:</strong>                Feriados exclusivos de Macapá<br> 🟣 <strong style="color: #9b59b6;">Facultativo:</strong> Ponto facultativo
+            </p>
+        </div>
+    </div>
+
+    <script src="Js/Script.js"></script>
+</body>
+
+</html>
